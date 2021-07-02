@@ -31,7 +31,6 @@ call plug#begin('~/.vim/plugged')
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tpope/vim-fugitive'
 Plug 'vim-utils/vim-man'
-Plug 'ThePrimeagen/vim-be-good', {'do': './install.sh'}
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'sheerun/vim-polyglot'
@@ -56,9 +55,9 @@ call plug#end()
 let mapleader = " "
 
 " colorscheme related
- colorscheme gruvbox
+colorscheme dracula
 let g:gruvbox_contrast_dark = 'medium'
-let g:airline_theme='onehalfdark'
+" let g:airline_theme='onehalfdark'
 
 
 inoremap jj <Esc>
