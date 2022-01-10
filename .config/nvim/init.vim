@@ -60,7 +60,7 @@ call plug#begin('~/.vim/plugged')
 
     " LSP
     Plug 'neovim/nvim-lspconfig'
-    Plug 'kabouzeid/nvim-lspinstall'
+    Plug 'williamboman/nvim-lsp-installer'
     Plug 'hrsh7th/cmp-nvim-lsp'
     Plug 'hrsh7th/cmp-buffer'
     Plug 'hrsh7th/nvim-cmp'
@@ -126,10 +126,11 @@ nnoremap <leader>l :wincmd l<CR>
 " nnoremap <silent> K     <cmd>Lspsaga hover_doc<CR>
 
 
-nnoremap <leader>ff :GFiles<CR>
-nnoremap <Leader><space> :Files<CR>
-nnoremap <Leader>bb :Buffers<CR>
+" nnoremap <leader>ff :GFiles<CR>
+" nnoremap <Leader><space> :Files<CR>
+" nnoremap <Leader>bb :Buffers<CR>
 nnoremap <silent> <leader>/ :Ag<CR>
+nnoremap <Leader><space> <cmd>Telescope find_files<cr>
 
 nnoremap ,f <cmd>Telescope find_files<cr>
 nnoremap ,g <cmd>Telescope live_grep<cr>
@@ -160,4 +161,3 @@ require("lsp")
 require('statusline')
 require('treesitter')
 EOF
-
