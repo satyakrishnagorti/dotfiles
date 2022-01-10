@@ -1,5 +1,8 @@
 local cmp = require'cmp'
 local lspkind = require'lspkind'
+local lsp_installer = require('nvim-lsp-installer')
+
+-- cmp config
 cmp.setup({
   snippet = {
     -- expand = function(args)
@@ -108,20 +111,38 @@ local on_attach = function(client, bufnr)
 
 end
 
+
+-- Commenting for now, setting up config via lsp-installer instead.
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { 'pyright', 'rust_analyzer', 'tsserver' }
-for _, lsp in ipairs(servers) do
-  nvim_lsp[lsp].setup {
-    on_attach = on_attach,
-    flags = {
-      debounce_text_changes = 150,
-    },
-    capabilities = capablities
-  }
-end
+-- local servers = { 'pyright', 'rust_analyzer', 'tsserver' }
+-- for _, lsp in ipairs(servers) do
+--   nvim_lsp[lsp].setup {
+--     on_attach = on_attach,
+--     flags = {
+--       debounce_text_changes = 150,
+--     },
+--     capabilities = capablities
+--   }
+-- end
+
+
+-- lsp-installer
+lsp_installer.on_server_ready(function(server)
+
+    local opts = {
+        capablities = capablities,
+        on_attach = on_attach,
+        flags = {
+          debounce_text_changes = 150,
+        }
+    }
+    -- can override opts for specific servers if needed
+    -- if server.name == 'xyz' then
+    --     opts = ...
+    -- end
+    server:setup(opts)
+end)
 
 -- Rust tools setup
 require('rust-tools').setup({})
-
-
