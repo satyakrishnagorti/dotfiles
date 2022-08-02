@@ -1,0 +1,7 @@
+require('options')
+require('keymaps')
+require('plugins')
+require('statusline')
+require('treesitter')
+require('telescope-config')
+require('lsp')
