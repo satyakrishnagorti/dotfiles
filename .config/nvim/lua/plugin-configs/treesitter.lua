@@ -1,7 +1,5 @@
-require 'nvim-treesitter.configs'.setup {
-    -- ensure_installed can be "all" or a list of languages { "python", "javascript" }
+require("nvim-treesitter.configs").setup({
     ensure_installed = "all",
-
     highlight = { -- enable highlighting for all file types
         enable = true, -- you can also use a table with list of langs here (e.g. { "python", "javascript" })
     },
@@ -15,6 +13,7 @@ require 'nvim-treesitter.configs'.setup {
             node_decremental = "grm", -- decrement to the previous node
         }
     },
+    autotag = { enable = true },
     textobjects = {
         -- These are provided by
         select = {
@@ -31,4 +30,6 @@ require 'nvim-treesitter.configs'.setup {
             },
         },
     },
-}
+
+})
+

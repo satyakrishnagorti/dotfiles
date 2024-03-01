@@ -1,4 +1,4 @@
-require 'lualine'.setup {
+require('lualine').setup({
     options = {
         icons_enabled = true,
         theme = 'auto',
@@ -9,8 +9,7 @@ require 'lualine'.setup {
     },
     sections = {
         lualine_a = { 'mode' },
-        lualine_b = { 'branch', 'diff',
-            { 'diagnostics', sources = { 'nvim_diagnostic', 'coc' } } },
+        lualine_b = { 'branch', 'diff', 'diagnostics' },
         lualine_c = { 'filename' },
         lualine_x = { 'encoding', 'fileformat', 'filetype' },
         lualine_y = { 'progress' },
@@ -24,13 +23,5 @@ require 'lualine'.setup {
         lualine_y = {},
         lualine_z = {}
     },
-    -- tabline = {
-    --     lualine_a = { 'buffers' },
-    --     lualine_b = { 'branch' },
-    --     lualine_c = { 'filename' },
-    --     lualine_x = {},
-    --     lualine_y = {},
-    --     lualine_z = { 'tabs' }
-    -- },
     extensions = {}
-}
+})

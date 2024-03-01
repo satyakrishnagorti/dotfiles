@@ -1,34 +1,45 @@
--- globals
-vim.g.mapleader = " "
+local M = {}
 
--- options
-vim.opt.tabstop = 5
-vim.opt.softtabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.expandtab = true
-vim.opt.smartindent = true
-vim.opt.nu = true
-vim.opt.wrap = false
-vim.opt.smartcase = true
-vim.opt.incsearch = true
-vim.opt.relativenumber = true
-vim.opt.hidden = true
-vim.opt.showmatch = false
-vim.opt.background = 'dark'
-vim.opt.mouse = 'a'
-vim.opt.guifont = 'Literation Mono Powerline:h20'
-vim.opt.scrolloff = 8 -- start scrolling if you are lines away from end of page
-vim.opt.signcolumn = 'yes'
-vim.opt.termguicolors = true
-vim.opt.updatetime = 50
-vim.opt.cmdheight = 1
-vim.opt.hlsearch = false
-vim.opt.incsearch = true
-vim.opt.splitright = true
-vim.opt.splitbelow = true
---vim.opt.colorcolumn='120'
---vim.opt.guicursor=""  need to configure
+vim_opts = function(options)
+    if options ~= nil then
+        for scope, table in pairs(options) do
+            for setting, value in pairs(table) do
+                vim[scope][setting] = value
+            end
+        end
+    end
+end
 
--- commands
-vim.cmd 'colorscheme dracula'
-vim.cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])
+vim_opts({
+    opt = {
+        tabstop = 5,
+        softtabstop = 4,
+        shiftwidth = 4,
+        expandtab = true,
+        smartindent = true,
+        nu = true,
+        wrap = false,
+        smartcase = true,
+        incsearch = true,
+        relativenumber = true,
+        hidden = true,
+        showmatch = false,
+        background = 'dark',
+        mouse = 'a',
+        guifont = 'Literation Mono Powerline:h20',
+        scrolloff = 8, -- start scrolling if you are lines away from end of page
+        signcolumn = 'yes',
+        termguicolors = true,
+        updatetime = 50,
+        cmdheight = 1,
+        hlsearch = false,
+        incsearch = true,
+        splitright = true,
+        splitbelow = true,
+    },
+    g = {
+        mapleader = " ",
+    }
+})
+
+return M
